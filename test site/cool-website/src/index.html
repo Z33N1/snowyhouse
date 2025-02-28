@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Snowflake Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="bg-gray-900 text-white font-sans night-theme">
+    <div class="gui">
+        <div class="switch-container">
+            <span class="switch-label">Day</span>
+            <label class="switch">
+                <input type="checkbox" id="theme-switch" checked>
+                <span class="slider round"></span>
+            </label>
+            <span class="switch-label">Night</span>
+        </div>
+        <div class="snowflake-input-container">
+            <label for="snowflake-input">Snowflakes:</label>
+            <input type="number" id="snowflake-input" min="0" value="50">
+            <button id="set-button">Set</button>
+        </div>
+    </div>
+    <div class="snowflakes-container" aria-hidden="true" id="snowflakes-container"></div>
+    <img src="images/snowy_house.png" alt="Snowy House" class="snowy-house">
+    <img src="images/lamp.png" alt="Lamp" class="lamp">
+    <img src="images/light.png" alt="Light" class="light">
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+body {
+    background: linear-gradient(to bottom, #87CEEB, #121212);
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+body.day-theme {
+    background: linear-gradient(to bottom, #87CEEB, #ffffff);
+}
+
+body.night-theme {
+    background: linear-gradient(to bottom, #000033, #121212);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    border-top-left-radius: 50% 20px;
+    border-top-right-radius: 50% 20px;
+    z-index: 1;
+}
+
+.snowflakes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* images like hous and stuff */
+.snowy-house {
+    position: fixed; 
+    top: 76%;
+    left: 33%; 
+    transform: translate(-50%, -50%); 
+    width: 300px; 
+    height: auto;
+    z-index: 10;
+    
+}
+
+.lamp {
+    position: fixed; 
+    top: 74%;
+    left: 48%; 
+    transform: translate(-50%, -50%); 
+    width: 200px; 
+    height: auto;
+    z-index: 10;
+}
+
+.light {
+    position: fixed; 
+    top: 74%;
+    left: 48%; 
+    transform: translate(-50%, -50%); 
+    width: 200px; 
+    height: auto;
+    z-index: 9;
+    animation: fadeLight 3s infinite alternate;
+}
+
+@keyframes fadeLight {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+/* start of gui stuff v v v */
+
+
+
+:root {
+    --gui-shadow-color: rgba(0, 0, 0, 0.5); /* Default shadow color */
+}
+
+body.day-theme {
+    --gui-shadow-color: rgba(0, 0, 0, 0.5); /* Shadow color for day mode */
+}
+
+body.night-theme {
+    --gui-shadow-color: rgba(255, 255, 255, 0.5); /* Shadow color for night mode */
+}
+
+.gui {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px var(--gui-shadow-color);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #000033; /* Night sky color */
+}
+
+input:not(:checked) + .slider {
+    background-color: #87CEEB; /* Day sky color */
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.switch-label {
+    font-size: 12px;
+    color: white;
+}
+
+.snowflake-input-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #87CEEB; /* Day sky color */
+    color: black; /* Text color for day mode */
+}
+
+body.night-theme input[type="number"] {
+    background-color: #000033; /* Night sky color */
+    color: white; /* Text color for night mode */
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1976D2;
+}
+/* end of gui ^ ^ ^ */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+    z-index: 2;
+}
+
